@@ -7,7 +7,7 @@ inherit cargo
 DESCRIPTION="A spotify daemon"
 HOMEPAGE="https://github.com/Spotifyd/spotifyd"
 SRC_URI="https://github.com/Spotifyd/spotifyd/tarball/eda388f98486644b7f3667fc4fed9e5c0f49fcbc -> spotifyd-0.3.5-eda388f.tar.gz
-https://distfiles.macaronios.org/13/0b/3d/130b3df6dc73e5535c6cb8356e296d0355c67b8172fa1d2e0cd058232a12ceae5793772a74b0c39b11aed97c4f415c54ddaeba67c66213b61aff1480de5a2f74 -> spotifyd-0.3.5-funtoo-crates-bundle-37a7930b79097d8d8d6469efa8af57563b7295fae35b11243cc63575df672db3f22d5f5d5fb9a727678f27addba21e03148fc673a4f3ece0c03daba228512320.tar.gz"
+https://distfiles.macaronios.org/f4/ac/da/f4acdade496be6da552e01ddb32cf53fab38563a258682e4f639a2db451df9ee55bdc7abcbc0b49a4fd874d35b698ff667975d7724327012db5969a7e980029e -> spotifyd-0.3.5-funtoo-crates-bundle-37a7930b79097d8d8d6469efa8af57563b7295fae35b11243cc63575df672db3f22d5f5d5fb9a727678f27addba21e03148fc673a4f3ece0c03daba228512320.tar.gz"
 
 LICENSE="Apache-2.0 BSD BSD-2 GPL-3 ISC MIT MPL-2.0 ZLIB"
 KEYWORDS="*"
