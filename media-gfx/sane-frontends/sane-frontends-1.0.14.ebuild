@@ -1,55 +1,62 @@
-# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-inherit eutils
+EAPI=7
 
 DESCRIPTION="Scanner Access Now Easy"
 HOMEPAGE="http://www.sane-project.org"
-SRC_URI="ftp://ftp.sane-project.org/pub/sane/${P}/${P}.tar.gz
-	ftp://ftp.sane-project.org/pub/sane/old-versions/${P}/${P}.tar.gz"
+SRC_URI="https://salsa.debian.org/debian/sane-frontends/-/archive/upstream/${PV}/${PN}-upstream-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ppc ppc64 sparc x86"
-IUSE="gimp"
+KEYWORDS="*"
+IUSE="gimp gtk"
 
-DEPEND="media-gfx/sane-backends
-	gimp? ( media-gfx/gimp )"
+REQUIRED_USE="gimp? ( gtk )"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	epatch "${FILESDIR}/MissingCapsFlag.patch"
-}
+DEPEND="
+	media-gfx/sane-backends
+	gimp? ( media-gfx/gimp:2 )
+	gtk? (
+		dev-libs/glib:2
+		x11-libs/gtk+:2
+	)
+"
+RDEPEND="${DEPEND}"
 
-src_compile() {
-	local myconf=""
-	use gimp || myconf="--disable-gimp"
-	use gimp && ! has_version ">=media-gfx/gimp-2" && myconf="--enable-gimp12"
-	econf \
-		--datadir=/usr/share/misc \
-		${myconf} || die
-	emake || die "emake failed"
+DOCS=( AUTHORS Changelog NEWS PROBLEMS README )
+
+PATCHES=( "${FILESDIR}/MissingCapsFlag.patch" )
+
+S="${WORKDIR}"/"${PN}"-upstream-"${PV}"
+
+src_configure() {
+	local myeconfargs=(
+		--datadir=/usr/share/misc
+		$(use_enable gimp)
+		$(use_enable gtk gtk2)
+		$(use_enable gtk guis)
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
-	local gimpplugindir
-	local gimptool
-	emake DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install
+
+	# link xscanimage so it is seen as a plugin in gimp
 	if use gimp; then
-		for gimptool in gimptool gimptool-2.0 gimptool-1.2; do
-			if [ -x /usr/bin/${gimptool} ]; then
-				einfo "Setting plugin link for GIMP version	$(/usr/bin/${gimptool} --version)"
-				gimpplugindir=$(/usr/bin/${gimptool} --gimpplugindir)/plug-ins
-				break
-			fi
-		done
-		if [ "/plug-ins" != "${gimpplugindir}" ]; then
-			 dodir ${gimpplugindir}
-			dosym /usr/bin/xscanimage ${gimpplugindir}/xscanimage
+		local plugindir
+		if type gimptool &>/dev/null; then
+			plugindir="$(gimptool --gimpplugindir)/plug-ins"
+		elif type gimptool-2.0 &>/dev/null; then
+			plugindir="$(gimptool-2.0 --gimpplugindir)/plug-ins"
+		elif type gimptool-2.99 &>/dev/null; then
+			plugindir="$(gimptool-2.99 --gimpplugindir)/plug-ins"
 		else
-			ewarn "No idea where to find the gimp plugin directory"
+			die "Can't find GIMP plugin directory."
 		fi
+		dodir "${plugindir#${EPREFIX}}"
+		dosym ../../../../bin/xscanimage "${plugindir#${EPREFIX}}"/xscanimage
 	fi
-	dodoc AUTHORS Changelog NEWS PROBLEMS README
+
+	einstalldocs
 }

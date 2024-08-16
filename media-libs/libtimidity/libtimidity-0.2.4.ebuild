@@ -1,8 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-inherit multilib-minimal
+EAPI=7
 
 DESCRIPTION="MIDI to WAVE converter library"
 HOMEPAGE="http://libtimidity.sourceforge.net"
@@ -10,17 +8,17 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0/2"
-KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="*"
 IUSE="ao debug"
 
-RDEPEND="ao? ( >=media-libs/libao-1.1.0-r2[${MULTILIB_USEDEP}] )"
+RDEPEND="ao? ( >=media-libs/libao-1.1.0-r2 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 RESTRICT="test"
 DOCS="AUTHORS CHANGES TODO README*"
 
-multilib_src_configure() {
+src_configure() {
 	ECONF_SOURCE="${S}" econf \
 		--disable-static \
 		$(use_enable ao) \

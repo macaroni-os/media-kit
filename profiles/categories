@@ -1,4 +1,8 @@
+app-accessibility
 app-cdr
+app-misc
+dev-libs
+dev-perl
 dev-python
 media-fonts
 media-gfx
@@ -8,4 +12,9 @@ media-radio
 media-sound
 media-tv
 media-video
+net-libs
+net-misc
+sys-libs
 virtual
+x11-skins
+x11-themes
