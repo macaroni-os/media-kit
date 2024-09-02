@@ -4,7 +4,7 @@ EAPI=7
 
 FONT_PN=OpenImageIO
 PYTHON_COMPAT=( python3+ )
-inherit cmake font python-single-r1
+inherit cmake font python-single-r1 flag-o-matic
 
 DESCRIPTION="A library for reading and writing images"
 HOMEPAGE="https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO"
@@ -94,7 +94,7 @@ pkg_setup() {
 src_unpack() {
 	default
 	rm -rf "${S}"
-	mv "${WORKDIR}"/OpenImageIO-oiio-* "${S}" || die
+	mv "${WORKDIR}"/AcademySoftwareFoundation-OpenImageIO-* "${S}" || die
 }
 
 src_prepare() {
@@ -119,6 +119,8 @@ src_configure() {
 	for cpufeature in "${CPU_FEATURES[@]}"; do
 		use "${cpufeature%:*}" && mysimd+=("${cpufeature#*:}")
 	done
+
+	append-ldflags -pthread
 
 	# If no CPU SIMDs were used, completely disable them
 	[[ -z ${mysimd} ]] && mysimd=("0")
@@ -148,7 +150,7 @@ src_configure() {
 		-DUSE_LIBRAW=$(usex raw)
 		-DUSE_FREETYPE=$(usex truetype)
 		-DUSE_SIMD=$(local IFS=','; echo "${mysimd[*]}")
-		-DCMAKE_CXX_STANDARD=14
+		-DCMAKE_CXX_STANDARD=17
 	)
 	if use python; then
 		mycmakeargs+=( -DPYTHON_SITE_DIR=$(python_get_sitedir) )
@@ -171,3 +173,4 @@ src_install() {
 		doins "${dir}"/*.ttf
 	done
 }
+# vim: filetype=ebuild
