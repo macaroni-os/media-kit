@@ -107,6 +107,11 @@ DEPEND="${RDEPEND}
 BDEPEND=">=dev-util/meson-0.49.2
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/040-lib-fmt-support-build-with-libfmt-11.0.0.patch
+	"${FILESDIR}"/mpd-fmt11_e380ae9.patch
+)
+
 post_src_unpack() {
 	if [ ! -d "${S}" ]; then
 		mv MusicPlayerDaemon-MPD* "${S}" || die
@@ -300,3 +305,5 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_icon_cache_update
 }
+
+# vim: filetype=ebuild
