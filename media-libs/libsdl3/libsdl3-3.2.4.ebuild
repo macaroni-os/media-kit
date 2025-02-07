@@ -6,7 +6,7 @@ inherit autotools cmake-utils flag-o-matic
 
 DESCRIPTION="Simple Direct Media Layer"
 HOMEPAGE="https://www.libsdl.org/"
-SRC_URI="https://github.com/libsdl-org/SDL/tarball/2fa1e7258a1fd9e3a7a546218b5ed1564953ad39 -> SDL-3.2.2-2fa1e72.tar.gz"
+SRC_URI="https://github.com/libsdl-org/SDL/tarball/b5c3eab6b447111d3c7879bb547b80fb4abd9063 -> SDL-3.2.4-b5c3eab.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
