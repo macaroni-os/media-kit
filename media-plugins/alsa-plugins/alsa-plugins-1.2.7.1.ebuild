@@ -74,9 +74,9 @@ multilib_src_install_all() {
 		# install ALSA configuration files
 		# making PA to be used by alsa clients
 		insinto /usr/share/alsa
-		doins ${REPODIR}/media-sound/files/${PN}/pulse-default.conf
+		doins ${FILESDIR}/${PN}/pulse-default.conf
 		insinto /usr/share/alsa/alsa.conf.d
-		doins ${REPODIR}/media-sound/files/${PN}/51-pulseaudio-probe.conf
+		doins ${FILESDIR}/${PN}/51-pulseaudio-probe.conf
 		# bug #410261, comment 5+
 		# seems to work fine without any path
 		sed \
