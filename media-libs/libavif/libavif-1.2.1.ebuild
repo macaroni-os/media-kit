@@ -48,6 +48,7 @@ src_configure() {
 		# Use system libraries.
 		-DAVIF_LOCAL_ZLIBPNG=OFF
 		-DAVIF_LOCAL_JPEG=OFF
+		-DAVIF_LIBYUV=OFF
 
 		-DAVIF_BUILD_GDK_PIXBUF=$(usex gdk-pixbuf ON OFF)
 		-DAVIF_ENABLE_WERROR=OFF
