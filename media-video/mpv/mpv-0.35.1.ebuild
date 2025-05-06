@@ -39,7 +39,7 @@ xv? ( X )
 "
 # Commons depends
 CDEPEND="!!app-shells/mpv-bash-completion
-	>=media-libs/libplacebo-7.349.0:=[vulkan?]
+	media-libs/libplacebo:=[vulkan?]
 	>=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
 	alsa? ( media-libs/alsa-lib )
 	archive? ( app-arch/libarchive:= )
