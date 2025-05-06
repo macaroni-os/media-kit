@@ -108,7 +108,7 @@ CDEPEND="!!app-shells/mpv-bash-completion
 "
 BDEPEND="${PYTHON_DEPS}
 	dev-util/meson
-	virtual/pkg-config
+	virtual/pkgconfig
 	cli? ( dev-python/docutils )
 	wayland? ( dev-util/wayland-scanner )
 	
