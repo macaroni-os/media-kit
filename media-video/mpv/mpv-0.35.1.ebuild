@@ -8,7 +8,7 @@ PYTHON_REQ_USE='threads(+)'
 inherit meson bash-completion-r1 flag-o-matic lua-single pax-utils python-single-r1 xdg-utils
 
 DESCRIPTION="Command line media player"
-HOMEPAGE="Command line media player"
+HOMEPAGE="https://mpv.io/"
 SRC_URI="https://api.github.com/repos/mpv-player/mpv/tarball/v0.35.1 -> mpv-0.35.1.tar.gz"
 LICENSE="LGPL-2.1+ GPL-2+ BSD ISC"
 SLOT="0"
