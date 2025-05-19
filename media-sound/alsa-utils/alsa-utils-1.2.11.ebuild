@@ -23,7 +23,7 @@ RDEPEND="${CDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	${FILESDIR}/${PN}/${PN}-1.1.8-missing_header.patch
+	${FILESDIR}/${PN}-1.1.8-missing_header.patch
 )
 
 src_configure() {
