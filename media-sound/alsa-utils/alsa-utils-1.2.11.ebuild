@@ -23,7 +23,7 @@ RDEPEND="${CDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	${REPODIR}/media-sound/files/${PN}/${PN}-1.1.8-missing_header.patch
+	${FILESDIR}/${PN}-1.1.8-missing_header.patch
 )
 
 src_configure() {
@@ -47,11 +47,11 @@ src_install() {
 	default
 	dodoc seq/*/README.*
 
-	newinitd ${REPODIR}/media-sound/files/${PN}/alsasound.initd-r8 alsasound
-	newconfd ${REPODIR}/media-sound/files/${PN}/alsasound.confd-r4 alsasound
+	newinitd ${FILESDIR}/alsasound.initd-r8 alsasound
+	newconfd ${FILESDIR}/alsasound.confd-r4 alsasound
 
 	insinto /etc/modprobe.d
-	newins ${REPODIR}/media-sound/files/${PN}/alsa-modules.conf-rc alsa.conf
+	newins ${FILESDIR}/alsa-modules.conf-rc alsa.conf
 
 	keepdir /var/lib/alsa
 
