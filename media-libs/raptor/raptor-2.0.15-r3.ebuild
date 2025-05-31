@@ -46,6 +46,8 @@ src_prepare() {
 	default
 	eautoreconf #552474
 	elibtoolize # Keep this for ~*-fbsd
+	# Fix compatibility with libxml2 - macaroni-os/mark-issues#420
+	sed -e '/ret->checked/d'  -i src/raptor_libxml.c || die
 }
 
 src_configure() {
