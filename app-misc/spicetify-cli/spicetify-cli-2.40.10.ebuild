@@ -138,14 +138,14 @@ go-module_set_globals
 
 DESCRIPTION="Commandline tool to customize Spotify client."
 HOMEPAGE="https://github.com/khanhas/spicetify-cli"
-SRC_URI="https://github.com/spicetify/spicetify-cli/tarball/d66dff6f9e4f027802252be0146337fa3fedb37d -> spicetify-cli-2.40.9-d66dff6.tar.gz
-https://distfiles.macaronios.org/bd/c2/4e/bdc24ef45ecc45a40283a2ba161c1e37b9c811cdfa27aa2b41dcd5a7ec06f61d841555a859fd8f626d90e8ce36bf2f3f9f6d3387fe3eb0744f4f64dc15496454 -> spicetify-cli-2.40.9-funtoo-go-bundle-867a9c39cbe8d45b19e1ced61057d7e0b62475b76237e51f9066afce46520370f14171aadc351cd4e352534e7443422cabea414e6e9fdc63b790430ecb94003d.tar.gz"
+SRC_URI="https://github.com/spicetify/spicetify-cli/tarball/0b70a046f97c6792a3a6342b03f1cccd370c597a -> spicetify-cli-2.40.10-0b70a04.tar.gz
+https://distfiles.macaronios.org/d3/47/7d/d3477d29db201a3a1035afc2bdda3f1461cdeef8a2e1950251e8b1c79b8070875920714c03a0d8b18f035fa61a6003dc56820d457a305a47a8d5aa7059399837 -> spicetify-cli-2.40.10-funtoo-go-bundle-867a9c39cbe8d45b19e1ced61057d7e0b62475b76237e51f9066afce46520370f14171aadc351cd4e352534e7443422cabea414e6e9fdc63b790430ecb94003d.tar.gz"
 
 LICENSE="Apache-2.0 BSD GPL-3 MIT"
 SLOT="0"
 KEYWORDS="*"
 IUSE="hook"
-S="${WORKDIR}/spicetify-cli-d66dff6"
+S="${WORKDIR}/spicetify-cli-0b70a04"
 
 INSTALLDIR="/opt/${PN}"
 
