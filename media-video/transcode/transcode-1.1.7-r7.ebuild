@@ -94,9 +94,6 @@ src_configure() {
 	local myconf
 	use x86 && myconf="$(use_enable !pic x86-textrels)" #271476
 
-	# Fix imagemagick detection
-	export CPPFLAGS="$CPPFLAGS -DMAGICKCORE_HDRI_ENABLE=1 -DMAGICKCORE_QUANTUM_DEPTH=16"
-
 	local myeconfargs=(
 		$(use_enable cpu_flags_x86_mmx mmx)
 		$(use_enable cpu_flags_x86_3dnow 3dnow)
