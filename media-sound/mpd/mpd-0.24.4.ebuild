@@ -230,7 +230,7 @@ src_install() {
 	newins doc/mpdconf.example mpd.conf
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/${PN}.logrotate ${PN}
-	newinitd "${FILESDIR}"/${PN}.init ${PN}
+	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
 	keepdir /var/lib/mpd/playlists
