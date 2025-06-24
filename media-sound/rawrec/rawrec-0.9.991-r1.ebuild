@@ -30,7 +30,4 @@ src_install() {
 
 	doman ../docs/user/rawrec.1
 	dosym rawrec.1 /usr/share/man/man1/rawplaywplay.1
-
-	einfo "Removing SUID from binary.."
-	fperms 755 /usr/bin/rawrecec
 }
