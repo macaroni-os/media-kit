@@ -98,6 +98,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	# Fix GL symbols
+	sed -i -e 's|#include <vector>|#include <vector>\n#include <GL/gl.h>|g' src/iv/ivgl.h || die
 	if has_version dev-libs/imath:3 ; then
 		for file in $(grep -rl '<Imath/' "${S}") ; do
 			sed -i -e 's#<Imath/#<Imath-3/#g' "$file"
