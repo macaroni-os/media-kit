@@ -23,7 +23,6 @@ REQUIRED_USE="
 BDEPEND="
 	dev-libs/glib
 	dev-util/gdbus-codegen
-	dev-util/glib-utils
 	sys-devel/gettext
 	test? ( sys-apps/dbus )
 "

@@ -75,7 +75,7 @@ CDEPEND="${PYTHON_DEPS}
 	)
 	
 "
-BDEPEND="dev-util/glib-utils
+BDEPEND="
 	dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig
