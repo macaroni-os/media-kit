@@ -41,7 +41,9 @@ src_prepare() {
 	sed -i -e '/define sp/s/+/ + /g' libmp3lame/i386/nasm.h || die
 
 	use cpu_flags_x86_mmx || sed -i -e '/AC_PATH_PROG/s:nasm:dIsAbLe&:' configure.in #361879
-
+	mv configure.{in,ac} || die
+	sed -e '/AM_ICONV/d' configure.ac  -i
+	elibtoolize
 	AT_M4DIR=. eautoreconf
 }
 
