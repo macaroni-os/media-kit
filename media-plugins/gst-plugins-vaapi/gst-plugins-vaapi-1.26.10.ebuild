@@ -43,22 +43,16 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/gstreamer-vaapi-1.26.10"
 src_configure() {
 	local emesonargs=(
-	  -Dpackage-name="GStreamer vaapi plug-ins (MacaroniOS Linux)"
 	  -Dpackage-origin="https://macaronios.org"
-	  -Dwith_encoders=yes
-	  -Dwith_drm=$(usex drm yes no)
-	  -Dwith_x11=$(usex X yes no)
-	  -Dwith_wayland=$(usex wayland yes no)
+	  $(meson_feature drm)
+	  $(meson_feature X x11)
+	  $(meson_feature wayland)
+	  $(meson_feature wayland egl)
 	)
 	if use opengl || use gles2; then
-	    emesonargs+=( -Dwith_egl=$(usex egl yes no) )
+	    emesonargs+=( -Dglx=enabled )
 	else
-	    emesonargs+=( -Dwith_egl=no )
-	fi
-	if use opengl && use X; then
-	    emesonargs+=( -Dwith_glx=yes )
-	else
-	    emesonargs+=( -Dwith_glx=no )
+	    emesonargs+=( -Dglx=disabled )
 	fi
 	# Workaround EGL/eglplatform.h being built with X11 present
 	use X || export CFLAGS="${CFLAGS} -DEGL_NO_X11"
