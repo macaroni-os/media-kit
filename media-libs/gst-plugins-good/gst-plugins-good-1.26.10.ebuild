@@ -74,7 +74,7 @@ src_configure() {
 	  $(meson_feature mp3 mpg123)
 	  $(meson_feature pulseaudio pulse)
 	  $(meson_feature taglib)
-	  $(meson_feature v4l)
+	  $(meson_feature v4l v4l2)
 	  $(meson_feature vpx)
 	  $(meson_feature wavpack)
 	  -Dpackage-name="GStreamer good plug-ins (MacaroniOS Linux)"
@@ -82,7 +82,7 @@ src_configure() {
 	)
 	if use v4l ; then
 	  emesonargs+=(
-	    -Dv4l-gudev=$(usex udev enabled disabled)
+	    -Dv4l2-gudev=$(usex udev enabled disabled)
 	  )
 	fi
 	meson_src_configure
