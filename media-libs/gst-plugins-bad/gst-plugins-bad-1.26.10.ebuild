@@ -10,8 +10,8 @@ SRC_URI="https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1
 LICENSE="LGPL-2+"
 SLOT="1.0"
 KEYWORDS="*"
-IUSE="X bzip2 +egl gles2 +introspection +opengl +orc udev vaapi opus
-vnc wayland aac dts dvb dvd mpeg2enc libass modplug mplex
+IUSE="X bzip2 +egl gles2 +introspection +opengl +orc opus udev vaapi
+vnc wayland aac dts dvb dvd mpeg2enc libass modplug mplex x265
 "
 BDEPEND="virtual/perl-JSON-PP
 	virtual/pkgconfig
@@ -58,6 +58,9 @@ RDEPEND=">=media-libs/gstreamer-1.26.10:1.0[introspection?]
 	mplex? (
 	  media-video/mjpegtools
 	)
+	x265? (
+	  media-libs/x265
+	)
 	
 "
 DEPEND="${RDEPEND}
@@ -74,10 +77,12 @@ src_configure() {
 	  -Ddts=enabled
 	  -Ddvb=enabled
 	  -Dfaad=enabled
+	  -Dfaac=enabled
 	  -Dbz2=enabled
 	  -Dhls=enabled
 	  -Dipcpipeline=enabled
 	  -Dassrender=enabled
+	  -Dx265=enabled
 	  -Dlibrfb=enabled
 	  -Dmodplug=enabled
 	  -Dmpeg2enc=enabled
@@ -96,19 +101,26 @@ src_configure() {
 	  -Dx11=$(usex X $(usex vnc enabled disabled) disabled)
 	  $(meson_feature wayland)
 	  $(meson_feature aac faad)
+	  $(meson_feature aac faac)
 	  $(meson_feature dvd resindvd)
 	  $(meson_feature mpeg2enc)
 	  $(meson_feature libass assrender)
 	  $(meson_feature opus)
 	  $(meson_feature mplex)
 	  $(meson_feature dts)
+	  $(meson_feature x265)
 	  -Dpackage-name="GStreamer bad plug-ins (MacaroniOS Linux)"
 	  -Dpackage-origin="https://macaronios.org"
 	)
-	if use opengl || use gles2 || use aac || use dts || use dvd || use mpeg2enc; then
+	if use opengl || use gles2 ; then
 	  emesonargs+=( -Dgl=enabled )
 	else
 	  emesonargs+=( -Dgl=disabled )
+	fi
+	if use aac || use dts || use dvd || use mpeg2enc || use mplex || use faad ; then
+	  emesonargs+=( -Dgpl=enabled )
+	else
+	  emesonargs+=( -Dgpl=disabled )
 	fi
 	meson_src_configure
 }
