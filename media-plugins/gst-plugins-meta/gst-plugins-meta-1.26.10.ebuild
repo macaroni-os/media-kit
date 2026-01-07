@@ -38,10 +38,11 @@ RDEPEND=">=media-libs/gstreamer-1.26.10:1.0
 	  >=media-libs/gst-plugins-bad-1.26.10:1.0[dvb]
 	)
 	dvd? (
-	  >=media-libs/gst-plugins-ugly-1.26.10:1.0[a52dec,dvdread,mpeg2dec,dvd]
+	  >=media-libs/gst-plugins-ugly-1.26.10:1.0[a52dec,dvdread,mpeg2dec]
+	  >=media-libs/gst-plugins-bad-1.26.10:1.0[dvd]
 	)
 	ffmpeg? (
-	  >=media-plugins/gst-plugins-libva-1.26.10:1.0
+	  >=media-plugins/gst-plugins-libav-1.26.10:1.0
 	)
 	flac? (
 	  >=media-libs/gst-plugins-good-1.26.10:1.0[flac]
