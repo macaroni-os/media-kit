@@ -10,7 +10,7 @@ SRC_URI="https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1
 LICENSE="LGPL-2+"
 SLOT="1.0"
 KEYWORDS="*"
-IUSE="X bzip2 +egl gles2 +introspection +opengl +orc udev vaapi
+IUSE="X bzip2 +egl gles2 +introspection +opengl +orc udev vaapi opus
 vnc wayland aac dts dvb dvd mpeg2enc libass modplug mplex
 "
 BDEPEND="virtual/perl-JSON-PP
