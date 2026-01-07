@@ -29,7 +29,7 @@ RDEPEND=">=media-libs/gstreamer-1.26.10:1.0[introspection?]
 	)
 	orc? ( dev-lang/orc )
 	vaapi? (
-	  media-libs/libva
+	  x11-libs/libva
 	  udev? ( dev-libs/libgudev )
 	)
 	aac? (
