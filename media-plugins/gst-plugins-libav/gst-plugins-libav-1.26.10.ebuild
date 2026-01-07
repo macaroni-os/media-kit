@@ -18,7 +18,7 @@ BDEPEND="virtual/perl-JSON-PP
 RDEPEND="dev-libs/glib:2
 	>=media-libs/gstreamer-1.26.10:1.0
 	media-libs/gst-plugins-base:1.0
-	media-libs/ffmpeg:=
+	media-video/ffmpeg:=
 	
 "
 DEPEND="${RDEPEND}
