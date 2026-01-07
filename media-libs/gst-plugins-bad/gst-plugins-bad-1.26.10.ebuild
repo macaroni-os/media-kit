@@ -77,7 +77,7 @@ src_configure() {
 	  -Dbz2=enabled
 	  -Dhls=enabled
 	  -Dipcpipeline=enabled
-	  -Dlibass=enabled
+	  -Dassrender=enabled
 	  -Dlibrfb=enabled
 	  -Dmodplug=enabled
 	  -Dmpeg2enc=enabled
@@ -101,13 +101,14 @@ src_configure() {
 	  $(meson_feature libass assrender)
 	  $(meson_feature opus)
 	  $(meson_feature mplex)
+	  $(meson_feature dts)
 	  -Dpackage-name="GStreamer bad plug-ins (MacaroniOS Linux)"
 	  -Dpackage-origin="https://macaronios.org"
 	)
 	if use opengl || use gles2 || use aac || use dts || use dvd || use mpeg2enc; then
-	  myconf+=( -Dgl=enabled )
+	  emesonargs+=( -Dgl=enabled )
 	else
-	  myconf+=( -Dgl=disabled )
+	  emesonargs+=( -Dgl=disabled )
 	fi
 	meson_src_configure
 }
