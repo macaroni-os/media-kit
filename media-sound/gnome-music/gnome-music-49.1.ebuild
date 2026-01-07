@@ -11,14 +11,10 @@ SRC_URI="https://download.gnome.org/sources/gnome-music/49/gnome-music-49.1.tar.
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="*"
-PATCHES=(
-	"${FILESDIR}/gnome-music-meson36.patch"
-)
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # Commons depends
 CDEPEND="${PYTHON_DEPS}
 	>=net-libs/gnome-online-accounts-${PV%.*}
-	app-misc/tracker:=
 	$(python_gen_cond_dep '>=dev-python/pygobject-3.21.1:3[cairo,${PYTHON_USEDEP}]')
 	dev-libs/glib:2
 	dev-libs/gobject-introspection:=
@@ -35,7 +31,7 @@ RDEPEND="${COMMON_DEPEND}
 	media-libs/gstreamer:1.0[introspection]
 	media-libs/gst-plugins-base:1.0[introspection]
 	media-plugins/gst-plugins-meta:1.0
-	media-plugins/grilo-plugins:0.3[tracker]
+	media-plugins/grilo-plugins:0.3
 	x11-misc/xdg-user-dirs
 	
 "
