@@ -65,7 +65,7 @@ src_configure() {
 	  -Dpng=enabled
 	  -Dsoup=enabled
 	  -Dtaglib=enabled
-	  -Dv4l=enabled
+	  -Dv4l2=enabled
 	  -Dvpx=enabled
 	  -Dwavpack=enabled
 	  $(meson_feature flac)
