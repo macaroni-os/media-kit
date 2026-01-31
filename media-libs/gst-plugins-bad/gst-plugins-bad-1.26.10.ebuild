@@ -109,6 +109,7 @@ src_configure() {
 	  $(meson_feature mplex)
 	  $(meson_feature dts)
 	  $(meson_feature x265)
+	  $(meson_feature modplug)
 	  -Dpackage-name="GStreamer bad plug-ins (MacaroniOS Linux)"
 	  -Dpackage-origin="https://macaronios.org"
 	)
