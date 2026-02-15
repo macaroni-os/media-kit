@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="*"
 RDEPEND="dev-libs/glib:2
 	dev-qt/qtbase:6[gui]
-	media-libs/libpulse[glib]
+	media-sound/pulseaudio[glib]
 	
 "
 DEPEND="${RDEPEND}
