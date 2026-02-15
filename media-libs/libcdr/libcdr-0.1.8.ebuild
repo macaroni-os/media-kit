@@ -13,7 +13,7 @@ KEYWORDS="*"
 IUSE="doc"
 BDEPEND="sys-devel/libtool
 	virtual/pkgconfig
-	doc? ( app-text/doxygen )
+	doc? ( app-doc/doxygen )
 	
 "
 RDEPEND="dev-libs/icu:=
