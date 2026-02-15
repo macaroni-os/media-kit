@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS="*"
 IUSE="doc tools"
 BDEPEND="virtual/pkgconfig
-	doc? ( app-text/doxygen )
+	doc? ( app-doc/doxygen )
 	
 "
 RDEPEND="dev-libs/icu:=
