@@ -25,7 +25,7 @@ RDEPEND="
 	media-libs/harfbuzz
 	media-libs/mesa[X(+)]
 	net-misc/curl[ssl]
-	net-print/cups[ssl]
+	net-print/cups
 	pulseaudio? ( media-sound/pulseaudio )
 	!pulseaudio? ( media-sound/apulse )
 	systray? ( gnome-extra/gnome-integration-spotify )
