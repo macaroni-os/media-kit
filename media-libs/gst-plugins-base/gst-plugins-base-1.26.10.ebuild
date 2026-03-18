@@ -79,7 +79,7 @@ RDEPEND="app-text/iso-codes
 	cdda? (
 	  media-sound/cdparanoia
 	)
-	
+	media-libs/gstreamer:1.0
 "
 DEPEND="${RDEPEND}
 	dev-util/gtk-doc-am
