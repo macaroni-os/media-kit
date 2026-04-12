@@ -28,7 +28,7 @@ RDEPEND=">=media-libs/gstreamer-1.26.11:1.0
 	)
 	cdda? ( || (
 	    >=media-libs/gst-plugins-ugly-1.26.11:1.0[cdio]
-	    >=media-libs/gst-plugins-bad-1.26.11:1.0[cdda]
+	    >=media-libs/gst-plugins-base-1.26.11:1.0[cdda]
 	  )
 	)
 	dts? (
