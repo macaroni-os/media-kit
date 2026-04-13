@@ -38,7 +38,8 @@ X? ( egl? ( opengl ) )
 xv? ( X )
 "
 # Commons depends
-CDEPEND="!!app-shells/mpv-bash-completion
+CDEPEND="media-libs/libdisplay-info
+	!!app-shells/mpv-bash-completion
 	media-libs/libplacebo:=[vulkan?]
 	>=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
 	alsa? ( media-libs/alsa-lib )
