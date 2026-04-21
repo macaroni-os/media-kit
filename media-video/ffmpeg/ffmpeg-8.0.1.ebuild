@@ -162,7 +162,7 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	libv4l? ( media-libs/libv4l )
 	libxml2? ( dev-libs/libxml2:= )
 	lv2? (
-	  media-libs/liv2
+	  media-libs/lv2
 	  media-libs/lilv
 	)
 	lzma? ( app-arch/xz-utils )
