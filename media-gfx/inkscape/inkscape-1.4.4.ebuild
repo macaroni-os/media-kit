@@ -90,6 +90,9 @@ RDEPEND="${CDEPEND}
 "
 DEPEND="${CDEPEND}
 "
+PATCHES=(
+	"${FILESDIR}"/inkscape-pango-1.57.patch
+)
 pkg_pretend() {
 	use openmp && tc-check-openmp
 }
