@@ -122,7 +122,7 @@ CDEPEND="dev-libs/protobuf:=
 	quirc? ( media-libs/quirc:= )
 	tbb? ( dev-cpp/tbb:= )
 	v4l? ( media-libs/libv4l )
-	vaapi? ( media-libs/libva )
+	vaapi? ( x11-libs/libva )
 	webp? ( media-libs/libwebp:= )
 	vulkan? ( media-libs/vulkan-loader )
 	wayland? (
