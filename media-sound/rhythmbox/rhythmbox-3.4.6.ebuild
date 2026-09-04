@@ -42,7 +42,6 @@ DEPEND="
 	cdr? ( >=app-cdr/brasero-2.91.90 )
 	daap? (
 		>=net-libs/libdmapsharing-2.9.19:3.0
-		>=media-plugins/gst-plugins-soup-1.4:1.0
 	)
 	gnome-keyring? ( >=app-crypt/libsecret-0.18 )
 	libnotify? ( >=x11-libs/libnotify-0.7.0 )
@@ -60,14 +59,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	media-plugins/gst-plugins-soup:1.0
-	media-plugins/gst-plugins-libmms:1.0
-	|| (
-		media-plugins/gst-plugins-cdparanoia:1.0
-		media-plugins/gst-plugins-cdio:1.0
-	)
-	media-plugins/gst-plugins-meta:1.0
-	media-plugins/gst-plugins-taglib:1.0
+	media-plugins/gst-plugins-meta:1.0[soup,taglib,cdda]
 	x11-themes/adwaita-icon-theme
 	python? (
 		>=dev-libs/libpeas-0.7.3[python,${PYTHON_SINGLE_USEDEP}]
