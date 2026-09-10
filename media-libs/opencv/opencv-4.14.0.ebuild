@@ -387,7 +387,7 @@ src_configure() {
 	 # ===================================================
 	# configure modules to be build
 	# ===================================================
-	  -DBUILD_opencv_dnn="no"
+	  -DBUILD_opencv_dnn="$(usex contrib ON OFF)"
 	  -DBUILD_opencv_gapi="$(usex ffmpeg yes "$(usex gstreamer)")"
 	  -DBUILD_opencv_features2d="$(usex features2d)"
 	  -DBUILD_opencv_java_bindings_generator="no"
