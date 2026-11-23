@@ -100,8 +100,7 @@ src_configure() {
 	  $(meson_feature vnc librfb)
 	  -Dx11=$(usex X $(usex vnc enabled disabled) disabled)
 	  $(meson_feature wayland)
-	  $(meson_feature aac faad)
-	  $(meson_feature aac faac)
+	  $(meson_feature aac aac)
 	  $(meson_feature dvd resindvd)
 	  $(meson_feature mpeg2enc)
 	  $(meson_feature libass assrender)
@@ -118,7 +117,7 @@ src_configure() {
 	else
 	  emesonargs+=( -Dgl=disabled )
 	fi
-	if use aac || use dts || use dvd || use mpeg2enc || use mplex || use faad ; then
+	if use aac || use dts || use dvd || use mpeg2enc || use mplex ; then
 	  emesonargs+=( -Dgpl=enabled )
 	else
 	  emesonargs+=( -Dgpl=disabled )
